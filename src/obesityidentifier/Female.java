@@ -13,7 +13,7 @@ public class Female implements Obesity {
         double meter;
         double Obesity;
         double broca;
-        meter = height/100;
+        meter = height/120;
         Obesity= (weight/(meter*meter));
         
         if (Obesity<18.5){
