@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ObesityIdentifier.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;ObesityIdentifier&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">obesityidentifier</a> &gt; <span class="el_source">ObesityIdentifier.java</span></div><h1>ObesityIdentifier.java</h1><pre class="source lang-java linenums">package obesityidentifier;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class ObesityIdentifier {</span>
+
+    public double CalculateWeight (Obesity ideal) {
+        double meter;
+        double Obesity;
+<span class="nc" id="L10">        double broca = 0;</span>
+        
+<span class="nc bnc" id="L12" title="All 2 branches missed.">        if(ideal instanceof Male){</span>
+<span class="nc" id="L13">            Male male = (Male) ideal;</span>
+<span class="nc" id="L14">            meter = male.getHeight()/100;</span>
+<span class="nc" id="L15">            Obesity = (male.getWeight()/(meter*meter));</span>
+<span class="nc" id="L16">            System.out.print(&quot;Obese Level: &quot;+Obesity+&quot; &quot;);</span>
+
+<span class="nc bnc" id="L18" title="All 2 branches missed.">            if (Obesity&lt;18.5){</span>
+<span class="nc" id="L19">                System.out.println(&quot;(Thin)&quot;);</span>
+<span class="nc bnc" id="L20" title="All 2 branches missed.">            }else if (Obesity&lt;=22.9){</span>
+<span class="nc" id="L21">                System.out.println(&quot;(Normal)&quot;);</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">            }else if (Obesity&lt;24.9){</span>
+<span class="nc" id="L23">                System.out.println(&quot;(Overweight)&quot;); </span>
+            }else {
+<span class="nc" id="L25">                System.out.println(&quot;(Obese)&quot;); </span>
+            }
+<span class="nc" id="L27">            broca = (male.getHeight()-100)-(0.10*(male.getHeight()-100));</span>
+            
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        }else if(ideal instanceof Female){</span>
+<span class="nc" id="L30">            Female female = (Female) ideal;</span>
+<span class="nc" id="L31">            meter = female.getHeight()/100;</span>
+<span class="nc" id="L32">            Obesity = (female.getWeight()/(meter*meter));</span>
+<span class="nc" id="L33">            System.out.print(&quot;Obese Level: &quot;+Obesity+&quot; &quot;);</span>
+
+<span class="nc bnc" id="L35" title="All 2 branches missed.">            if (Obesity&lt;18.5){</span>
+<span class="nc" id="L36">                System.out.println(&quot;(Thin)&quot;);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            }else if (Obesity&lt;=22.9){</span>
+<span class="nc" id="L38">                System.out.println(&quot;(Normal)&quot;);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">            }else if (Obesity&lt;24.9){</span>
+<span class="nc" id="L40">                System.out.println(&quot;(Overweight)&quot;); </span>
+            }else {
+<span class="nc" id="L42">                System.out.println(&quot;(Obese)&quot;); </span>
+            }
+<span class="nc" id="L44">            broca = (female.getHeight()-100)-(0.15*(female.getHeight()-100));</span>
+        }
+<span class="nc" id="L46">            return broca;</span>
+    }
+    
+    public static String name(){
+        String name;
+        
+<span class="nc" id="L52">        Scanner input = new Scanner (System.in);</span>
+            
+<span class="nc" id="L54">        System.out.println(&quot;Please Insert Your Name :&quot;);</span>
+<span class="nc" id="L55">        name = input.nextLine();</span>
+        
+<span class="nc" id="L57">        return name;</span>
+    }
+    
+    public static Integer age(){
+        int age;
+        
+<span class="nc" id="L63">        Scanner input = new Scanner (System.in);</span>
+        
+<span class="nc" id="L65">        System.out.println(&quot;Enter Your age :&quot;);</span>
+<span class="nc" id="L66">        age = Integer.parseInt(input.nextLine());</span>
+             
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (age &lt; 18){</span>
+<span class="nc" id="L69">             System.out.println(&quot;You are not old enough to use the Obesity Identifier&quot;);</span>
+        } else {
+<span class="nc" id="L71">            rumusByGender();</span>
+        }
+<span class="nc" id="L73">        return age;</span>
+    }
+    
+    
+    public static String rumusByGender(){
+        String GenderAnswer;
+        double height;
+        double weight;
+        
+<span class="nc" id="L82">        Scanner input = new Scanner (System.in);</span>
+        
+<span class="nc" id="L84">        System.out.println(&quot;Enter your gender (M/F) :&quot;);</span>
+<span class="nc" id="L85">        GenderAnswer = input.nextLine();</span>
+        
+        //If else untuk memilih rumus berdasarkan jenis kelamin
+<span class="nc" id="L88">            ObesityIdentifier  idealObj = new ObesityIdentifier ();</span>
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            if(GenderAnswer.equals(&quot;M&quot;)){</span>
+<span class="nc" id="L90">                System.out.println(&quot;Weight :&quot;); </span>
+<span class="nc" id="L91">                weight = Double.parseDouble(input.nextLine());</span>
+                
+<span class="nc" id="L93">                 System.out.println(&quot;Height :&quot;); </span>
+<span class="nc" id="L94">                height = Double.parseDouble(input.nextLine());</span>
+                
+<span class="nc" id="L96">                System.out.println(&quot;------------------------------&quot;);</span>
+<span class="nc" id="L97">                System.out.println(&quot;Result&quot;);</span>
+                
+<span class="nc" id="L99">                 Male male = new Male(weight,height);</span>
+<span class="nc" id="L100">                 System.out.println(&quot;Your ideal weight according to Broca: &quot;+idealObj.CalculateWeight(male)+&quot; Kg&quot;);</span>
+            
+<span class="nc" id="L102">            }else{         </span>
+                
+<span class="nc" id="L104">                System.out.println(&quot;Weight :&quot;);</span>
+<span class="nc" id="L105">               weight = Double.parseDouble(input.nextLine());</span>
+               
+<span class="nc" id="L107">                System.out.println(&quot;Height :&quot;);</span>
+<span class="nc" id="L108">               height = Double.parseDouble(input.nextLine());</span>
+               
+<span class="nc" id="L110">                System.out.println(&quot;------------------------------&quot;);</span>
+<span class="nc" id="L111">                System.out.println(&quot;Result&quot;);</span>
+               
+               
+<span class="nc" id="L114">                Female female = new Female(weight,height);</span>
+<span class="nc" id="L115">                System.out.println(&quot;Your ideal weight according to Broca: &quot;+idealObj.CalculateWeight(female)+&quot; Kg&quot;);   </span>
+            }
+        
+<span class="nc" id="L118">            return GenderAnswer;</span>
+    }
+    
+    
+    public static void main(String[] args) {
+<span class="nc" id="L123">        System.out.println(&quot;Obesity Identifier Program&quot;);</span>
+<span class="nc" id="L124">        System.out.println(&quot;-------------------------------------------&quot;);</span>
+<span class="nc" id="L125">        System.out.println(&quot;Identity&quot;);</span>
+        
+<span class="nc" id="L127">        name();</span>
+<span class="nc" id="L128">        age();</span>
+        
+<span class="nc" id="L130">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
